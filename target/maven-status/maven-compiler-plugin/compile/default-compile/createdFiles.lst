@@ -16,6 +16,7 @@ com\project\chatapplication\LeftMenu$2.class
 com\project\chatapplication\ChatWindow$2.class
 com\project\modernComponent\ProgressCircleUI.class
 com\project\chatapplication\ChatWindow$9.class
+com\project\event\ChatEvent.class
 com\project\modernComponent\JIMSendTextPane$WarpLabelView.class
 com\project\modernComponent\ModernScrollBarUI$InvisibleScrollBarButton.class
 com\project\component\ChatDate.class
@@ -31,11 +32,13 @@ com\project\chatapplication\ChatPanel.class
 com\project\component\ImageViewer$2.class
 com\project\blurHash\Util.class
 com\project\chatapplication\ChatWindow$8.class
+com\project\chatapplication\ChatPanel$1.class
 com\project\chatapplication\LeftMenu$3.class
 com\project\component\ImageViewer.class
 com\project\component\PeopleCard.class
 com\project\modernComponent\ModernScrollBarUI.class
 com\project\component\ChatItem.class
+com\project\component\ChatBottom$2.class
 com\project\modernComponent\JIMSendTextPane.class
 com\project\chatapplication\ChatWindow$5.class
 com\project\chatapplication\Home.class
@@ -50,6 +53,8 @@ com\project\modernComponent\ScrollBar.class
 com\project\component\ChatBottom.class
 com\project\component\ChatImage.class
 com\project\chatapplication\ChatWindow$7.class
+com\project\component\ChatBody$1.class
+com\project\component\ChatBottom$1.class
 com\project\chatapplication\ChatWindow.class
 com\project\blurHash\Base83.class
 com\project\chatapplication\ChatWindow$4.class

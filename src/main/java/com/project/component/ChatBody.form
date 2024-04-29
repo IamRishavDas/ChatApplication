@@ -44,7 +44,7 @@
         <Container class="javax.swing.JPanel" name="chatBody">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="cc" red="ff" type="rgb"/>
+              <Color blue="ff" green="af" red="db" type="rgb"/>
             </Property>
           </Properties>
 

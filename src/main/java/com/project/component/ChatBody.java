@@ -1,13 +1,16 @@
 
 package com.project.component;
 
-import com.project.chatapplication.ChatLeft;
 import com.project.chatapplication.ChatLeftWithProfile;
 import com.project.chatapplication.ChatRight;
 import com.project.modernComponent.ScrollBar;
+import java.awt.Adjustable;
 import java.awt.Color;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 import net.miginfocom.swing.MigLayout;
 
 /**
@@ -21,31 +24,31 @@ public class ChatBody extends javax.swing.JPanel {
         initComponents();
         init();
         addItemRight("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.");
-        addItemLeft("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.", "rishav");
+//        addItemLeft("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.", "rishav");
         addItemRight("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.");
-        
-        String[] imageHash = {"LEHLk~WB2yk8pyo0adR*.7kCMdnj", "LEHLk~WB2yk8pyo0adR*.7kCMdnj"};
-        
-        addItemLeft("Practical task: ", "rishav", imageHash);
-        addItemRight("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.");
-        addItemLeft("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.", "rishav");
-        
-        addDate("03/02/2024");
-        
-        addItemRight("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.");
-        addItemLeft("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.", "rishav", new ImageIcon(getClass().getResource("/testingImages/testingDog.jpg")), new ImageIcon(getClass().getResource("/testingImages/testingDog.jpg")));
-        addItemRight("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.");
-        
-        addDate("Today");
-        
-        addItemLeft("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.", "rishav", new ImageIcon(getClass().getResource("/testingImages/testingDog.jpg")));
-        addItemRight("Practical task", new ImageIcon(getClass().getResource("/testingImages/testingImage2.jpg")), new ImageIcon(getClass().getResource("/testingImages/testingDog.jpg")));
-        addItemLeft("", "hitesh", new ImageIcon(getClass().getResource("/testingImages/testingDog.jpg")));
-        addItemLeft("ami mota", "pamela", new ImageIcon(getClass().getResource("/testingImages/testingDog.jpg")));
-        
-        addItemFileLeft("project application file", "Lora", "applicatin.docx", "1.3 MB");
-        addItemFileRight("please check my resume!", "Resume.pdf", "299.4 KB");
-        addItemFileRight("", "Resume.pdf", "100 KB");
+//        
+//        String[] imageHash = {"LEHLk~WB2yk8pyo0adR*.7kCMdnj", "LEHLk~WB2yk8pyo0adR*.7kCMdnj"};
+//        
+//        addItemLeft("Practical task: ", "rishav", imageHash);
+//        addItemRight("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.");
+//        addItemLeft("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.", "rishav");
+//        
+//        addDate("03/02/2024");
+//        
+//        addItemRight("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.");
+//        addItemLeft("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.", "rishav", new ImageIcon(getClass().getResource("/testingImages/testingDog.jpg")), new ImageIcon(getClass().getResource("/testingImages/testingDog.jpg")));
+//        addItemRight("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.");
+//        
+//        addDate("Today");
+//        
+//        addItemLeft("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.", "rishav", new ImageIcon(getClass().getResource("/testingImages/testingDog.jpg")));
+//        addItemRight("Practical task", new ImageIcon(getClass().getResource("/testingImages/testingImage2.jpg")), new ImageIcon(getClass().getResource("/testingImages/testingDog.jpg")));
+//        addItemLeft("", "hitesh", new ImageIcon(getClass().getResource("/testingImages/testingDog.jpg")));
+//        addItemLeft("ami mota", "pamela", new ImageIcon(getClass().getResource("/testingImages/testingDog.jpg")));
+//        
+//        addItemFileLeft("project application file", "Lora", "applicatin.docx", "1.3 MB");
+//        addItemFileRight("please check my resume!", "Resume.pdf", "299.4 KB");
+//        addItemFileRight("", "Resume.pdf", "100 KB");
     }
     
 
@@ -84,9 +87,10 @@ public class ChatBody extends javax.swing.JPanel {
         ChatRight rightItem = new ChatRight();
         rightItem.setText(text);
         rightItem.setImage(image);
-        rightItem.setTime();
         chatBody.add(rightItem, "wrap, al right, w 100::80%");
         updateChatBody();
+        rightItem.setTime();
+        scrollToBottom();
     }
     
     public void addItemFileLeft(String text, String user, String fileName, String fileSize){
@@ -114,6 +118,19 @@ public class ChatBody extends javax.swing.JPanel {
         updateChatBody();
     }
     
+    private void scrollToBottom() {
+    JScrollBar verticalBar = chatBodyScrollPane.getVerticalScrollBar();
+    AdjustmentListener downScroller = new AdjustmentListener() {
+        @Override
+        public void adjustmentValueChanged(AdjustmentEvent e) {
+            Adjustable adjustable = e.getAdjustable();
+            adjustable.setValue(adjustable.getMaximum());
+            verticalBar.removeAdjustmentListener(this);
+        }
+    };
+    verticalBar.addAdjustmentListener(downScroller);
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -126,7 +143,7 @@ public class ChatBody extends javax.swing.JPanel {
         chatBodyScrollPane.setBorder(null);
         chatBodyScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        chatBody.setBackground(new java.awt.Color(255, 204, 204));
+        chatBody.setBackground(new java.awt.Color(219, 175, 255));
 
         javax.swing.GroupLayout chatBodyLayout = new javax.swing.GroupLayout(chatBody);
         chatBody.setLayout(chatBodyLayout);
