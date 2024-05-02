@@ -3,6 +3,7 @@ com\project\modernComponent\JIMSendTextPane$WarpColumnFactory.class
 com\project\chatapplication\ChatLeftWithProfile.class
 com\project\component\ImageItem.class
 com\project\modernComponent\Progress$ProgressType.class
+com\project\component\LoadingForm.class
 com\project\modernComponent\Line.class
 com\project\blurHash\BlurHash.class
 com\project\chatapplication\ChatWindow$2.class

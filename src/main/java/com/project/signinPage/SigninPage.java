@@ -19,7 +19,20 @@ public class SigninPage extends javax.swing.JPanel {
         PublicEvent.getInstance().setLoginEvent(new LoginEvent(){
             @Override
             public void login() {
-                System.out.println("login: TODO!!");
+                new Thread(new Runnable(){
+                    @Override
+                    public void run(){
+                        PublicEvent.getInstance().getMainEvent().showLoading(true);
+                        try{
+                            Thread.sleep(4000);
+                        } catch(InterruptedException ex){
+                            System.out.println("Sleep: Exception" + ex.getMessage());
+                        }
+                        PublicEvent.getInstance().getMainEvent().showLoading(false);
+                        PublicEvent.getInstance().getMainEvent().showChat();        
+                        setVisible(false);
+                    }
+                }).start();
             }
 
             @Override
@@ -75,7 +88,7 @@ public class SigninPage extends javax.swing.JPanel {
         signinPicLayout.setVerticalGroup(
             signinPicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, signinPicLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(529, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(0, 0, 0))
         );
@@ -98,7 +111,7 @@ public class SigninPage extends javax.swing.JPanel {
         );
         panelSlideLayout.setVerticalGroup(
             panelSlideLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 404, Short.MAX_VALUE)
+            .addGap(0, 383, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -113,8 +126,8 @@ public class SigninPage extends javax.swing.JPanel {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelSlide, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(panelSlide, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -154,10 +167,10 @@ public class SigninPage extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(signinPic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(80, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100)))
+                        .addGap(0, 90, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE))
         );

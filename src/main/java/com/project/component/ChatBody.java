@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import net.miginfocom.swing.MigLayout;
@@ -27,9 +28,9 @@ public class ChatBody extends javax.swing.JPanel {
 //        addItemLeft("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.", "rishav");
         addItemRight("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.");
 //        
-//        String[] imageHash = {"LEHLk~WB2yk8pyo0adR*.7kCMdnj", "LEHLk~WB2yk8pyo0adR*.7kCMdnj"};
-//        
-//        addItemLeft("Practical task: ", "rishav", imageHash);
+        String[] imageHash = {"LEHLk~WB2yk8pyo0adR*.7kCMdnj", "LEHLk~WB2yk8pyo0adR*.7kCMdnj"};
+        
+        addItemLeft("Practical task: ", "rishav", imageHash);
 //        addItemRight("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.");
 //        addItemLeft("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.", "rishav");
 //        
@@ -42,7 +43,7 @@ public class ChatBody extends javax.swing.JPanel {
 //        addDate("Today");
 //        
 //        addItemLeft("Practical task: For example, you might be asked to create a webpage that displays a greeting message which changes based on the time of the day. Use HTML, CSS, and a bit of JavaScript.", "rishav", new ImageIcon(getClass().getResource("/testingImages/testingDog.jpg")));
-//        addItemRight("Practical task", new ImageIcon(getClass().getResource("/testingImages/testingImage2.jpg")), new ImageIcon(getClass().getResource("/testingImages/testingDog.jpg")));
+        addItemRight("Practical task", new ImageIcon(getClass().getResource("/testingImages/testingImage2.jpg")), new ImageIcon(getClass().getResource("/testingImages/testingDog.jpg")));
 //        addItemLeft("", "hitesh", new ImageIcon(getClass().getResource("/testingImages/testingDog.jpg")));
 //        addItemLeft("ami mota", "pamela", new ImageIcon(getClass().getResource("/testingImages/testingDog.jpg")));
 //        

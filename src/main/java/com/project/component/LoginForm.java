@@ -114,7 +114,7 @@ public class LoginForm extends javax.swing.JPanel {
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        PublicEvent.getInstance().getLoginEvent().login();
+        PublicEvent.getInstance().getLoginEvent().login(); 
     }//GEN-LAST:event_loginButtonActionPerformed
 
 

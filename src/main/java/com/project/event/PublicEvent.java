@@ -4,6 +4,7 @@ package com.project.event;
 
 public class PublicEvent {
     private static PublicEvent publicEvent;
+    private MainEvent mainEvent;
     private ImageViewEvent imageViewEvent;
     private ChatEvent chatEvent;
     private LoginEvent loginEvent;
@@ -40,5 +41,13 @@ public class PublicEvent {
     
     public LoginEvent getLoginEvent(){
         return this.loginEvent;
+    }
+    
+    public void setMainEvent(MainEvent mainEvent){
+        this.mainEvent = mainEvent;
+    }
+    
+    public MainEvent getMainEvent(){
+        return this.mainEvent;
     }
 }

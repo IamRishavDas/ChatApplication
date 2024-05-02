@@ -36,7 +36,7 @@ public class PanelSlide extends javax.swing.JPanel {
     private Component comShow;
     private int currentShowing;
     private boolean animateRight;
-    private int animate = 1;
+    private int animate = 6;
 
     public void init(Component... com) {
         if (com.length > 0) {

@@ -4,6 +4,7 @@ package com.project.chatapplication;
 
 import com.formdev.flatlaf.intellijthemes.FlatArcIJTheme;
 import com.project.event.ImageViewEvent;
+import com.project.event.MainEvent;
 import com.project.event.PublicEvent;
 import com.project.modernComponent.ComponentResizer;
 import java.awt.Dimension;
@@ -27,12 +28,26 @@ public class ChatWindow extends javax.swing.JFrame {
         com.setMinimumSize(new Dimension(width, height));
         com.setMaximumSize(Toolkit.getDefaultToolkit().getScreenSize());
         com.setSnapSize(new Dimension(10, 10));
+        signinPage.setVisible(true);
+        loadingForm.setVisible(false);
         imageViewer.setVisible(false);
-        home.setVisible(true);
+        home.setVisible(false);
         initEvent();
     }
     
     private void initEvent(){
+        PublicEvent.getInstance().setMainEvent(new MainEvent(){
+            @Override
+            public void showLoading(boolean show) {
+                loadingForm.setVisible(show);
+            }
+
+            @Override
+            public void showChat() {
+                home.setVisible(true);
+            }
+            
+        });
         PublicEvent.getInstance().setImageViewEvent(new ImageViewEvent(){
             @Override
             public void viewImage(Icon image){
@@ -58,6 +73,7 @@ public class ChatWindow extends javax.swing.JFrame {
         maximizeButton = new javax.swing.JButton();
         minimizeButton = new javax.swing.JButton();
         contentBody = new javax.swing.JLayeredPane();
+        loadingForm = new com.project.component.LoadingForm();
         signinPage = new com.project.signinPage.SigninPage();
         imageViewer = new com.project.component.ImageViewer();
         home = new com.project.chatapplication.Home();
@@ -66,6 +82,8 @@ public class ChatWindow extends javax.swing.JFrame {
         setUndecorated(true);
 
         backgroundPanel.setBackground(new java.awt.Color(153, 153, 153));
+
+        backgroundContent.setBackground(new java.awt.Color(204, 204, 255));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -157,7 +175,9 @@ public class ChatWindow extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        contentBody.setBackground(new java.awt.Color(214, 214, 235));
         contentBody.setLayout(new java.awt.CardLayout());
+        contentBody.add(loadingForm, "card5");
         contentBody.add(signinPage, "card4");
         contentBody.setLayer(imageViewer, javax.swing.JLayeredPane.POPUP_LAYER);
         contentBody.add(imageViewer, "card3");
@@ -170,7 +190,7 @@ public class ChatWindow extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(backgroundContentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(contentBody, javax.swing.GroupLayout.DEFAULT_SIZE, 1261, Short.MAX_VALUE)
+                .addComponent(contentBody, javax.swing.GroupLayout.DEFAULT_SIZE, 1281, Short.MAX_VALUE)
                 .addContainerGap())
         );
         backgroundContentLayout.setVerticalGroup(
@@ -179,7 +199,7 @@ public class ChatWindow extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(contentBody, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+                .addComponent(contentBody, javax.swing.GroupLayout.DEFAULT_SIZE, 649, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -232,9 +252,13 @@ public class ChatWindow extends javax.swing.JFrame {
         double screenWidth = screenSize.getWidth();
         double screenHeight = screenSize.getHeight();
         
-        this.setSize((int)screenWidth, (int)screenHeight);
-        this.setLocationRelativeTo(null);
-        
+        if(this.getWidth() == (int)screenWidth && this.getHeight() == (int)screenHeight){
+            this.setSize(1281, 649);
+            this.setLocationRelativeTo(null);
+        } else {
+            this.setSize((int)screenWidth, (int)screenHeight);
+            this.setLocationRelativeTo(null);
+        }
     }//GEN-LAST:event_maximizeButtonActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
@@ -276,7 +300,7 @@ public class ChatWindow extends javax.swing.JFrame {
     
     public static void main(String args[]) {
         
-        FlatArcIJTheme.setup();
+    //    FlatArcIJTheme.setup();
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
@@ -294,6 +318,7 @@ public class ChatWindow extends javax.swing.JFrame {
     private com.project.chatapplication.Home home;
     private com.project.component.ImageViewer imageViewer;
     private javax.swing.JPanel jPanel1;
+    private com.project.component.LoadingForm loadingForm;
     private javax.swing.JButton maximizeButton;
     private javax.swing.JButton minimizeButton;
     private com.project.signinPage.SigninPage signinPage;

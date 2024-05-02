@@ -68,7 +68,6 @@ public class LeftMenu extends javax.swing.JPanel {
         menuLeft.setOpaque(true);
         menuLeft.setLayout(new java.awt.GridLayout(1, 0, 3, 0));
 
-        chatButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/socialIcons/chat.png"))); // NOI18N
         chatButton.setSelected(true);
         chatButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +95,9 @@ public class LeftMenu extends javax.swing.JPanel {
         scrollPanePeopleCard.setBorder(null);
         scrollPanePeopleCard.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        peopleList.setBackground(new java.awt.Color(204, 255, 204));
+        peopleList.setOpaque(true);
+
         javax.swing.GroupLayout peopleListLayout = new javax.swing.GroupLayout(peopleList);
         peopleList.setLayout(peopleListLayout);
         peopleListLayout.setHorizontalGroup(
@@ -113,7 +115,7 @@ public class LeftMenu extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menuLeft, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+            .addComponent(menuLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 200, Short.MAX_VALUE)
             .addComponent(scrollPanePeopleCard)
         );
         layout.setVerticalGroup(
