@@ -6,6 +6,7 @@ public class PublicEvent {
     private static PublicEvent publicEvent;
     private ImageViewEvent imageViewEvent;
     private ChatEvent chatEvent;
+    private LoginEvent loginEvent;
     
     public static PublicEvent getInstance(){
         if(publicEvent == null) publicEvent = new PublicEvent();
@@ -30,5 +31,14 @@ public class PublicEvent {
     
     public ChatEvent getChatEvent(){
         return this.chatEvent;
+    }
+    
+    
+    public void setLoginEvent(LoginEvent loginEvent){
+        this.loginEvent = loginEvent;
+    }
+    
+    public LoginEvent getLoginEvent(){
+        return this.loginEvent;
     }
 }

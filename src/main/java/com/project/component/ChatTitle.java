@@ -17,12 +17,10 @@ public class ChatTitle extends javax.swing.JPanel {
     
     public void statusActive(){
         statusLabel.setText("Active Now");
-        statusLabel.setForeground(Color.GREEN);
     }
     
     public void setStatusText(String text){
         statusLabel.setText(text);
-        statusLabel.setForeground(Color.RED);
     }
     
     @SuppressWarnings("unchecked")

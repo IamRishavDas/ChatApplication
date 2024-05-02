@@ -183,6 +183,13 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
               <SubComponents>
+                <Component class="com.project.signinPage.SigninPage" name="signinPage">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                      <CardConstraints cardName="card4"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
                 <Component class="com.project.component.ImageViewer" name="imageViewer">
                   <AuxValues>
                     <AuxValue name="JLayeredPane.layer" type="java.lang.Integer" value="300"/>

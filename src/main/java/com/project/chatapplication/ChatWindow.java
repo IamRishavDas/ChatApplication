@@ -1,6 +1,8 @@
 
 package com.project.chatapplication;
 
+
+import com.formdev.flatlaf.intellijthemes.FlatArcIJTheme;
 import com.project.event.ImageViewEvent;
 import com.project.event.PublicEvent;
 import com.project.modernComponent.ComponentResizer;
@@ -56,6 +58,7 @@ public class ChatWindow extends javax.swing.JFrame {
         maximizeButton = new javax.swing.JButton();
         minimizeButton = new javax.swing.JButton();
         contentBody = new javax.swing.JLayeredPane();
+        signinPage = new com.project.signinPage.SigninPage();
         imageViewer = new com.project.component.ImageViewer();
         home = new com.project.chatapplication.Home();
 
@@ -155,6 +158,7 @@ public class ChatWindow extends javax.swing.JFrame {
         );
 
         contentBody.setLayout(new java.awt.CardLayout());
+        contentBody.add(signinPage, "card4");
         contentBody.setLayer(imageViewer, javax.swing.JLayeredPane.POPUP_LAYER);
         contentBody.add(imageViewer, "card3");
         contentBody.add(home, "card2");
@@ -269,35 +273,13 @@ public class ChatWindow extends javax.swing.JFrame {
         minimizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/navigationIcons/minimize.png")));
     }//GEN-LAST:event_minimizeButtonMouseExited
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ChatWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ChatWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ChatWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ChatWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+        
+        FlatArcIJTheme.setup();
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new ChatWindow().setVisible(true);
             }
@@ -314,5 +296,6 @@ public class ChatWindow extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton maximizeButton;
     private javax.swing.JButton minimizeButton;
+    private com.project.signinPage.SigninPage signinPage;
     // End of variables declaration//GEN-END:variables
 }
