@@ -2,6 +2,7 @@
 package com.project.component;
 
 import com.project.event.PublicEvent;
+import com.project.model.ModelRegister;
 
 
 public class RegisterForm extends javax.swing.JPanel {
@@ -127,7 +128,19 @@ public class RegisterForm extends javax.swing.JPanel {
     }//GEN-LAST:event_backLoginButtonActionPerformed
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        PublicEvent.getInstance().getLoginEvent().register();
+        String username = userNameInput.getText().trim();
+        String password = String.valueOf(passwordInput.getPassword());
+        String confirmPassword = String.valueOf(passwordConfirm.getPassword());
+        if(username.equals("")){
+            userNameInput.grabFocus();
+        } else if(password.equals("")){
+            passwordInput.grabFocus();
+        } else if(!password.equals(confirmPassword)){
+            passwordInput.grabFocus();
+        } else {
+            ModelRegister registerData = new ModelRegister(username, password);
+            PublicEvent.getInstance().getLoginEvent().register(registerData);
+        }      
     }//GEN-LAST:event_registerButtonActionPerformed
 
 

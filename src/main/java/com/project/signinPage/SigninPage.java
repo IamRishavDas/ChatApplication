@@ -5,6 +5,9 @@ import com.project.component.LoginForm;
 import com.project.component.RegisterForm;
 import com.project.event.LoginEvent;
 import com.project.event.PublicEvent;
+import com.project.model.ModelRegister;
+import com.project.service.Service;
+import io.socket.client.Ack;
 
 
 public class SigninPage extends javax.swing.JPanel {
@@ -36,8 +39,13 @@ public class SigninPage extends javax.swing.JPanel {
             }
 
             @Override
-            public void register() {
-                System.out.println("Register: TODO!!");
+            public void register(ModelRegister registerData) {
+                Service.getService().getClient().emit("register", registerData.toJSONObject(), new Ack(){
+                    @Override
+                    public void call(Object... os) {
+                        
+                    }  
+                });
             }
 
             @Override

@@ -1,9 +1,11 @@
 com\project\chatapplication\LeftMenu$1.class
 com\project\modernComponent\JIMSendTextPane$WarpColumnFactory.class
+com\project\model\ModelRegister.class
 com\project\chatapplication\ChatLeftWithProfile.class
 com\project\component\ImageItem.class
 com\project\modernComponent\Progress$ProgressType.class
 com\project\component\LoadingForm.class
+com\project\service\Service.class
 com\project\modernComponent\Line.class
 com\project\blurHash\BlurHash.class
 com\project\chatapplication\ChatWindow$2.class
@@ -73,4 +75,5 @@ com\project\modernComponent\PanelSlide$1.class
 com\project\modernComponent\ScrollBar.class
 com\project\component\ChatBottom.class
 com\project\chatapplication\ChatWindow.class
+com\project\signinPage\SigninPage$1$2.class
 com\project\chatapplication\ChatWindow$4.class

@@ -7,6 +7,7 @@ import com.project.event.ImageViewEvent;
 import com.project.event.MainEvent;
 import com.project.event.PublicEvent;
 import com.project.modernComponent.ComponentResizer;
+import com.project.service.Service;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.Icon;
@@ -33,6 +34,7 @@ public class ChatWindow extends javax.swing.JFrame {
         imageViewer.setVisible(false);
         home.setVisible(false);
         initEvent();
+        Service.getService().startServer();
     }
     
     private void initEvent(){
@@ -300,7 +302,7 @@ public class ChatWindow extends javax.swing.JFrame {
     
     public static void main(String args[]) {
         
-    //    FlatArcIJTheme.setup();
+//       FlatArcIJTheme.setup();
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
