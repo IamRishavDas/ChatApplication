@@ -302,7 +302,7 @@ public class ChatWindow extends javax.swing.JFrame {
     
     public static void main(String args[]) {
         
-//       FlatArcIJTheme.setup();
+    //   FlatArcIJTheme.setup();
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override

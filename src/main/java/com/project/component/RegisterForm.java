@@ -139,6 +139,7 @@ public class RegisterForm extends javax.swing.JPanel {
             passwordInput.grabFocus();
         } else {
             ModelRegister registerData = new ModelRegister(username, password);
+            System.out.println("Client: The register form invoked!!");
             PublicEvent.getInstance().getLoginEvent().register(registerData);
         }      
     }//GEN-LAST:event_registerButtonActionPerformed
