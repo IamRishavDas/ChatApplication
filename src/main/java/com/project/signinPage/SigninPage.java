@@ -4,8 +4,11 @@ package com.project.signinPage;
 import com.project.component.LoginForm;
 import com.project.component.RegisterForm;
 import com.project.event.LoginEvent;
+import com.project.event.MessageEvent;
 import com.project.event.PublicEvent;
+import com.project.model.ModelMessage;
 import com.project.model.ModelRegister;
+import com.project.model.ModelUserAccount;
 import com.project.service.Service;
 import io.socket.client.Ack;
 
@@ -37,13 +40,19 @@ public class SigninPage extends javax.swing.JPanel {
             }
 
             @Override
-            public void register(ModelRegister registerData) {
-                System.out.println("Client(signin page): The register method is incoked!!");
-                System.out.println("signin page: json data ->" + registerData.toJSONObject());
+            public void register(ModelRegister registerData, MessageEvent messageEvent) {
                 Service.getService().getClient().emit("register", registerData.toJSONObject(), new Ack() {
                     @Override
                     public void call(Object... os) {
-
+                        if(os.length>0){
+                                ModelMessage modelMessage = new ModelMessage((boolean)os[0], os[1].toString());
+                                messageEvent.callMessage(modelMessage);
+                                if(modelMessage.isAction()){
+                                        ModelUserAccount user = new ModelUserAccount(os[2]);
+                                        Service.getService().setUser(user);
+                                }
+                                // call message back when done register
+                        }
                     }
                 });
             }

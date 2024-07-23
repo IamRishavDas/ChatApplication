@@ -2,14 +2,21 @@
 package com.project.chatapplication;
 
 import com.project.component.PeopleCard;
+import com.project.event.LeftMenuEvent;
+import com.project.event.PublicEvent;
+import com.project.model.ModelUserAccount;
 import com.project.modernComponent.ScrollBar;
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+
 import net.miginfocom.swing.MigLayout;
 
 
 public class LeftMenu extends javax.swing.JPanel {
 
     
+    private List<ModelUserAccount> userAccount;
     public LeftMenu() {
         initComponents();
         initSimpleAndSelectedIcon();
@@ -20,12 +27,26 @@ public class LeftMenu extends javax.swing.JPanel {
     private void init() {
         scrollPanePeopleCard.setVerticalScrollBar(new ScrollBar(Color.GREEN));
         peopleList.setLayout(new MigLayout("fillx","0[]0","1[]1"));
+        userAccount = new ArrayList<>();
+        PublicEvent.getInstance().setLeftMenuEvent(new LeftMenuEvent() {
+
+            @Override
+            public void newUser(List<ModelUserAccount> users) {
+                for(ModelUserAccount d: users){
+                    userAccount.add(d);
+                    peopleList.add(new PeopleCard(d.getUserName()), "wrap");
+                    updateLeftMenu();
+                }
+            }
+            
+        });
+        showPeople();
     }
     
     private void showPeople() {
         peopleList.removeAll();
-        for(int i=0; i<20; i++){
-            peopleList.add(new PeopleCard("People " + (i+1)), "wrap");
+        for(ModelUserAccount d: userAccount){
+            peopleList.add(new PeopleCard(d.getUserName()), "wrap");
         }
         updateLeftMenu();
     }

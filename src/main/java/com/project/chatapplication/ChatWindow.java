@@ -47,6 +47,7 @@ public class ChatWindow extends javax.swing.JFrame {
             @Override
             public void showChat() {
                 home.setVisible(true);
+                Service.getService().getClient().emit("list_user", Service.getService().getUser().getUserId());
             }
             
         });
